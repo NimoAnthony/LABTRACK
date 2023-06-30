@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 	<meta charset="utf-8">
@@ -34,15 +35,16 @@
 
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
+		<div class="container-fluid" style="background-color: #971016">
+			<div class="navbar-header" style="background-color: #971016;">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
+				<img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 30px; width: 40px;">
+  					<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -55,29 +57,31 @@
 	<div class="panel">
 		<div class="panel-body">
 
+<div class="row" style="display: flex; justify-content: center;">
+    <div class="col-md-2 col-md-offset-2 student-div" style="text-align: center;">
+        <div class="panel panel-clickable" style="background-color: #971016;">
+            <div class="panel-body">
+                <h5 class="text-center" style="color: white">
+                    <i class="fa fa-user fa-2x"></i> &nbsp;
+                    I'M A STUDENT
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 faculty-div" style="margin-right: 240px;">
+        <div class="panel panel-clickable" style="background-color: #971016;">
+            <div class="panel-body">
+                <h5 class="text-center" style="color: white">
+                    <i class="fa fa-graduation-cap fa-2x"></i> &nbsp;
+                    I'M A FACULTY
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<div class="row">
-			<div class="col-md-4 col-md-offset-2 student-div">
-				<div class="panel panel-blue">
-					<div class="panel-body">
-						<h4 class="text-center color-white">
-						<i class="fa fa-user fa-2x"></i> &nbsp;
-						I'M A STUDENT
-						</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 faculty-div">
-				<div class="panel panel-blue">
-					<div class="panel-body">
-						<h4 class="text-center color-white">
-							<i class="fa fa-graduation-cap fa-2x"></i> &nbsp;
-							I'M A FACULTY
-						</h4>
-					</div>
-				</div>
-			</div>
-		</div>
+
+
 
 
 			<div class="col-md-4 col-sm-12 col-xs-12 col-md-offset-4">
@@ -149,8 +153,13 @@
 						<input type="password" name="s_password" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<button class="btn btn-primary btn_student" type="submit">Sign up</button>
-					</div>
+				  <div class="btn-group">
+				    <button class="btn btn-primary btn_student" type="submit">Sign up</button>
+				    <button class="btn btn-primary btn_student" type="submit" style="margin-left: 255px" onclick="window.location.href='login'">Back</button>
+
+				  </div>
+				</div>
+
 				</form>
 
 				<form class="frm_faculty_sign hide">
@@ -200,7 +209,8 @@
 					<div class="form-group">
 						<button class="btn btn-primary btn_faculty" type="submit">Sign up</button>
 					</div>
-					
+
+
 				</form>
 			</div>
 

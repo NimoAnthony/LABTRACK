@@ -1,12 +1,8 @@
 <?php 
 	include 'header.php';
 ?>
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 col-md-2 sidebar">
-		<form role="search">
-			<div class="form-group">
-				<!-- <input type="text" class="form-control" placeholder="Search"> -->
-			</div>
-		</form>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 col-md-2 sidebar" style="background-color: #333537">
+		
 		<ul class="nav menu">
 			<li class="">
 				<a href="dashboard">
@@ -26,7 +22,7 @@
 							<svg class="glyph stroked eye">
 								<use xlink:href="#stroked-eye"/>
 							</svg>
-							Reservations
+							Request
 						</a>
 					</li>
 					<li>
@@ -117,15 +113,15 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="dashboard"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Reservation</li>
+				<li class="active">Request</li>
 			</ol>
 		</div><!--/.row-->
 
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="nav nav-pills">
-					<li class="active"><a href="#pending" data-toggle="tab"><i class="fa fa-list"></i>&nbsp;&nbsp;Pending Reservation</a></li>
-					<li><a href="#reserved" data-toggle="tab"><i class="fa fa-question"></i>&nbsp;&nbsp;Accepted Reservation</a></li>
+					<li class="active"><a href="#pending" data-toggle="tab"><i class="fa fa-list"></i>&nbsp;&nbsp;Pending Request</a></li>
+					<li><a href="#reserved" data-toggle="tab"><i class="fa fa-question"></i>&nbsp;&nbsp;Accepted Request</a></li>
 				</ul>
 			</div>
 		</div>
@@ -142,7 +138,7 @@
 										<tr>
 											<th>Name</th>
 											<th>Items</th>
-											<th>Reservation Date</th>
+											<th>Requesting Date</th>
 											<th>Rooms</th>
 											<th>Action</th>
 										</tr>
@@ -156,7 +152,7 @@
 										<tr>
 											<th>Name</th>
 											<th>Items</th>
-											<th>Reservation Date</th>
+											<th>Requesting Date</th>
 											<th>Rooms</th>
 											<th>Action</th>
 										</tr>
@@ -179,7 +175,7 @@
 				<form class="frm_cancelreservation">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Cancel Reservation</h4>
+						<h4 class="modal-title" id="myModalLabel">Cancel Request</h4>
 					</div>
 					<div class="modal-body">
 					<div class="form-group">

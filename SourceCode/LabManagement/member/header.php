@@ -43,15 +43,16 @@
 
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
+		<div class="container-fluid" style="background-color: #971016">
+			<div class="navbar-header" style="background-color: #971016">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"> ICT LABORATORY MANAGEMENT SYSTEM</a>
+				 <img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 30px; width: 40px;">
+  					<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">

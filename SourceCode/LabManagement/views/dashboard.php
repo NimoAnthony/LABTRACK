@@ -1,12 +1,8 @@
-<?php 
+F<?php 
 	include 'header.php';
 ?>
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 col-md-2 sidebar">
-		<form role="search">
-			<div class="form-group">
-				<!-- <input type="text" class="form-control" placeholder="Search"> -->
-			</div>
-		</form>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 col-md-2 sidebar" style="background-color: #333537">
+		
 		<ul class="nav menu">
 			<li class="active">
 				<a href="#">
@@ -27,7 +23,7 @@
 							<svg class="glyph stroked eye">
 								<use xlink:href="#stroked-eye"/>
 							</svg>
-							Reservations
+							Request
 						</a>
 					</li>
 
@@ -128,7 +124,7 @@
 				
 				
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-sm-8">
 						<h1 class="page-header">Dashboard</h1>
 					</div>
 				</div><!--/.row-->
@@ -217,12 +213,7 @@
 					</div> -->
 
 				<!-- /div> -->
-				<div class="row">
-					<div class="col-sm-offset-3 col-sm-6">
-						<h2 style="text-align:center;">Calendar of Reservation</h2>
-						<div id="calendar"></div>
-					</div>
-				</div>
+				
 				<hr/>
 				<div class="row">
 					<table class="table table_dashboard">

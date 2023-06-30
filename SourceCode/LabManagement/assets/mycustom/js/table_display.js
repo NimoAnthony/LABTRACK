@@ -65,7 +65,7 @@ var table_room =  $('.table_room').DataTable({
 				exportOptions:{
 					columns: [0]
 				},
-				message: '<img src="LMS/assets/mycustom/js/logo.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="bsu.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>CARLOS HILADO MEMORIAL STATE COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',

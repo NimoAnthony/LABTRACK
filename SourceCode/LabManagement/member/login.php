@@ -34,8 +34,8 @@
 
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
+		<div class="container-fluid" style="background-color: #971016">
+			<div class="navbar-header" style="background-color: #971016">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
@@ -62,14 +62,16 @@
 						<input type="number" name="id_number" class="form-control" autofocus="on">
 					</div>
 					<div class="form-group">
-						<button class="btn btn-primary">Log in</button>
-						<br>
-						<a href="../"> Go to Admin Panel</a>
-						<br>
-						<a href="signup">Don't have an account yet? sign in</a>
+  <button class="btn btn-primary">Log in</button>
+  <br>
+  <br>
+  <div>
+    <a href="../" style="display: inline-block;">Go to Admin Panel</a>
+    <a href="signup" style="float: right;">Don't have an account yet? Sign up</a>
+  </div>
+</div>
+</form>
 
-					</div>
-				</form>
 			</div>
 
 		</div>

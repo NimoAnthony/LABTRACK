@@ -533,11 +533,6 @@ a.bg-danger:hover {
 	display: none;
 }
 
-.sidebar form {
-	padding: 20px 15px 5px 15px;
-	border-bottom: 1px solid #eee;
-	margin-bottom: 20px;
-}
 
 @media (min-width: 768px) {
 	.sidebar {
@@ -552,7 +547,7 @@ a.bg-danger:hover {
 		padding: 0;
 		overflow-x: hidden;
 		overflow-y: auto; 
-		background-color: #fff;
+		background-color: #333537;
 		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
 	}
 	.navbar-header {

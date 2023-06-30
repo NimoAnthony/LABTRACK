@@ -2,12 +2,8 @@
 include 'header.php';
 ?>
 
-<div id="sidebar-collapse" class="col-sm-2 col-md-2 col-lg-2 sidebar">
-	<form role="search">
-		<div class="form-group">
-			<!-- <input type="text" class="form-control" placeholder="Search"> -->
-		</div>
-	</form>
+<div id="sidebar-collapse" class="col-sm-2 col-md-2 col-lg-2 sidebar" style="background-color: #333537"> 
+	
 	<ul class="nav menu">
 		<li class="">
 			<a href="dashboard">
@@ -27,7 +23,7 @@ include 'header.php';
 						<svg class="glyph stroked eye">
 							<use xlink:href="#stroked-eye"/>
 						</svg>
-						Reservations
+						Request
 					</a>
 				</li>
 				<li>
