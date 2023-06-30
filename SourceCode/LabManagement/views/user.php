@@ -19,7 +19,7 @@ include 'header.php';
 						<use xlink:href="#stroked-chevron-down"></use>
 					</svg>
 				</span>
-				Transaction ss
+				Transaction
 			</a>
 			<ul class="children collapse" id="sub-item-1">
 				<li>
@@ -174,7 +174,7 @@ include 'header.php';
 					<select class="form-control" name="u_type" required="required">
 						<option disabled selected>Please select user type</option>
 						<option value="1">Administrator</option>
-						<option value="2">Staff/ Sudent Assistant</option>
+						
 					</select>
 				</div>
 				<div class="form-group">

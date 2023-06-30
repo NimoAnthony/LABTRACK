@@ -147,11 +147,11 @@
 									<td style="text-align:center;" class="e_photo" ></td>
 								</tr>
 								<tr>
-									<td class="success col-sm-6">Serial ID/ Device ID</td>
+									<td class="success col-sm-6">Item ID</td>
 									<td class="e_id"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">Model</td>
+									<td class="col-sm-6">Item Name</td>
 									<td class="e_model"></td>
 								</tr>
 								<tr>
@@ -187,7 +187,7 @@
 									<td class="e_status"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">MR</td>
+									<td class="col-sm-6">Added by;</td>
 									<td class="e_mr"></td>
 								</tr>
 								<tr>

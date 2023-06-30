@@ -101,6 +101,8 @@
 			$e_status = $_POST['e_status'];
 			$e_mr = $_POST['e_mr'];
 			$e_price = $_POST['e_price'];
+			$e_date_added = $_POST['e_date_added'];
+            $e_date_expiration = $_POST['e_date_expiration'];
 
 			session_start();
 			$h_desc = 'add new equipment'. $e_model.' , '.$e_category;
@@ -110,11 +112,12 @@
 
 
 
-			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_mr, i_price)
-												VALUES(?,?,?,?,?,?,?,?,?)');
-			$sql->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_stock,$e_mr,$e_price));
-			$row = $sql->rowCount();
-			$itemID = $conn->lastInsertId();
+			
+           $sql = $conn->prepare('INSERT INTO item (i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_mr, i_price, i_date_added, i_date_expiration)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+           $sql->execute(array($e_number, $e_model, $e_category, $e_brand, $e_description, $e_type, $e_stock, $e_mr, $e_price, $e_date_added, $e_date_expiration));
+           $row = $sql->rowCount();
+           $itemID = $conn->lastInsertId();
 
 			$imageName = $_FILES['e_photo']['name'];
 			$extension = pathinfo($imageName, PATHINFO_EXTENSION);

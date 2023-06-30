@@ -125,6 +125,7 @@
 					Add Item
 				</button>
 			</div>
+
 		</div><!--/.row-->
 		<div class="row">
 			<div class="col-lg-12">
@@ -164,34 +165,43 @@
 			<form class="frm_addequipment" enctype="multipart/form-data">
 				<input type="hidden" name="key" value="add_equipment" />
 				<div class="form-group">
-					<label>Device ID</label>
-					<input type="text" name="e_number" class="form-control" required>
-				</div>
+  <label>Item ID</label>
+  <input type="text" id="e_number" name="e_number"  class="form-control" required>
+</div>
+
+<script>
+  // Generate unique 5-digit ID
+  function generateDeviceID() {
+    var currentID = parseInt(localStorage.getItem("currentID")) || 11110; // Retrieve the last generated ID or start from 11110
+    var deviceID = currentID.toString(); // Convert the current ID to a string
+    localStorage.setItem("currentID", currentID + 1); // Increment the ID for the next generation
+    return deviceID;
+  }
+
+  // Assign generated ID to input field on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    var deviceIDField = document.getElementById("e_number");
+    deviceIDField.value = generateDeviceID();
+  });
+</script>
+
 				<div class="form-group">
-					<label>Model</label>
+					<label>Item Name</label>
 					<input type="text" name="e_model" class="form-control" required>
 				</div>
 				<div class="form-group">
-					<label>Category</label>
-					<select name="e_category" class="form-control" required>
-						<option selected disabled>Please select category</option>
-						<option>Mouse</option>
-						<option>Keyboard</option>
-						<option>Monitor</option>
-						<option>Projector</option>
-						<option>Remote</option>
-						<option>DLP Screen</option>
-						<option>Aircon</option>
-						<option>TV</option>
-						<option>AVR</option>
-						<option>Extension</option>
-						<option>UPS</option>
-						<option>Router</option>
-						<option>Table</option>
-						<option>Chair</option>
-						<option>Switch Hub</option>
-					</select> 
-				</div>
+ <div class="form-group">
+  <label>Type</label>
+  <select type="text" name="e_category" class="form-control" required>
+    <option disabled selected>Please select type</option>
+    <option value="chemicals">Chemicals</option>
+    <option value="tools">Tools</option>
+  </select>
+</div>
+
+
+
+
 				<div class="form-group">
 					<label>Brand</label>
 					<input type="text" name="e_brand" class="form-control" required>
@@ -225,16 +235,39 @@
 						<option value="2">Old</option>
 					</select>
 				</div>
-				
 				<div class="form-group">
-					<label>MR</label>
-					<input type="text" name="e_mr" class="form-control" required>
-				</div>
+  <label>Added By:</label>
+  <input type="text" name="e_mr" class="form-control" value="<?php echo $_SESSION['admin_username']; ?>" required>
+</div>
+
 				
 				<div class="form-group">
 					<label>Price</label>
 					<input type="text" name="e_price" class="form-control" required>
 				</div>
+				<div class="form-group">
+   <label>Date Added</label>
+  <input type="date" name="e_date_added" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
+</div>
+<div class="form-group" id="chemical-expiration" style="display: none;">
+  <label>Date Expiration</label>
+  <input type="date" name="e_date_expiration" class="form-control">
+</div>
+<script>
+  // Show/hide "Date Expiration" field based on selected category
+  var categoryField = document.querySelector('select[name="e_category"]');
+  var chemicalExpiration = document.getElementById("chemical-expiration");
+
+  categoryField.addEventListener("change", function () {
+    var selectedCategory = categoryField.value;
+
+    if (selectedCategory === "chemicals") {
+      chemicalExpiration.style.display = "block";
+    } else {
+      chemicalExpiration.style.display = "none";
+    }
+  });
+</script>
 				
 				 <div class="form-group">
 						<label >Photo</label>

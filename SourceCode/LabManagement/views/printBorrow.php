@@ -13,12 +13,15 @@
 	<table style="width:100%" cellpadding="0" cellspacing="0">
 		<tbody>
 			<tr>
-				<td><img src="logo.png" class="img-responsive" /></td>
+				<td><img src="bsu-logo.png" class="img-responsive" style="height: 100px; width: 107px;  top: 25px; margin-left: 180px;"/> </td>
 				<td style="text-align:center; font-size:13pt; font-family:'Times New Roman'">
 					<p style="margin:0;padding:0;">Republic of the Philippines</p>
-					<p style="margin:0;padding:0;font-weight:bold;">CARLOS HILADO MEMORIAL STATE COLLEGE</p>
-					<p style="margin:0;padding:0;">Talisay City, Negros Occidental</p>
+					<p style="margin:0;padding:0;font-weight:bold;">BATANGAS STATE UNIVERSITY</p>
+					<p style="margin:0;padding:0;">COLLEGE OF INFORMATICS AND COMPUTING SCIENCES</p>
+					<p style="margin:0;padding:0;">ARASOF-Nasugbu</p>
 				</td>
+
+
 				<td><img src="logo.png" class="img-responsive" style="visibility: hidden" /></td>
 			</tr>
 			<tr>

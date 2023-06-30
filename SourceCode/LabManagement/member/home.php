@@ -36,13 +36,13 @@ date_default_timezone_set('Asia/Manila');
 				
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Reservation</h1>
+						<h1 class="page-header">Requesting</h1>
 					</div>
 				</div><!--/.row-->
-
+				<hr>
 				<div class="row">
 					<div class="panel panel-default">
-						<div class="panel-heading"><svg class="glyph stroked email"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-email"></use></svg> Make Reservation</div>
+					
 						<div class="panel-body">
 							<form class="form-horizontal client_reservation" action="" >
 								<fieldset>
@@ -57,17 +57,39 @@ date_default_timezone_set('Asia/Manila');
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="email">Date </label>
 										<div class="col-md-9">
-											<input type="text" class="form-control datepicker" name="reserved_date" required="required">
+											<input type="date" name="e_date_added" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
 										</div>
 									</div>
 									
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="message">Time</label>
-										<div class="col-md-9">
-											<input type="time" placeholder="" class="form-control" name="reserved_time" required="required">
-											<input type="hidden" name="client_id" value="<?php echo $_SESSION['member_id']; ?>">
-										</div>
-									</div>
+	<label class="col-md-3 control-label" for="message">Time</label>
+	<div class="col-md-9">
+		<input type="time" placeholder="" class="form-control" name="reserved_time" required="required">
+		<input type="hidden" name="client_id" value="<?php echo $_SESSION['member_id']; ?>">
+	</div>
+</div>
+
+<script>
+	// Get the current time
+	var currentTime = new Date();
+  
+	// Format the time
+	var hours = currentTime.getHours();
+	var minutes = currentTime.getMinutes();
+  
+	// Pad single digit hours and minutes with leading zeros
+	if (hours < 10) {
+		hours = '0' + hours;
+	}
+	if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
+  
+	// Set the current time to the input field
+	var timeInput = document.querySelector('input[name="reserved_time"]');
+	timeInput.value = hours + ':' + minutes;
+</script>
+
 									<div class="form-group">
 										<label  class="col-md-3 control-label">Select Room</label>
 										<div class="col-md-9">
