@@ -28,6 +28,17 @@
 	<!-- toastr -->
 	<link rel="stylesheet" type="text/css" href="../assets/toastr/css/toastr.css">
 
+    <style>
+        body {
+            min-height: 100vh;
+						width: 100%;
+						background: linear-gradient(to top, rgba(0, 0, 0, 0.6)50%, rgba(0, 0, 0, 0.6)), url(assets/images/bsu-bg.jpg);
+						background-position: top;
+						background-size: cover;
+						position: relative;
+        }
+
+    </style>
 
 </head>
 <body class="index-body login">
@@ -42,7 +53,9 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
+
+				<img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 35px; width: 37px;">
+				<a class="navbar-brand" href="#">SCIENCE LABORATORY INVENTORY MANAGEMENT SYSTEM</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->

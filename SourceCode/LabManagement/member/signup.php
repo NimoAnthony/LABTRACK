@@ -43,8 +43,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 30px; width: 40px;">
-  					<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
+				<img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 35px; width: 37px;">
+  					<a class="navbar-brand" href="#">SCIENCE LABORATORY INVENTORY MANAGEMENT SYSTEM</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->

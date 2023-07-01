@@ -1,87 +1,83 @@
-var table_room =  $('.table_room').DataTable({
-			"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    if ( aData[0] == "Room 310" )
-                    {
-                        $('td', nRow).css('background-color', 'skyblue');
-                    }
-                },
-		"ajax":
+var table_room = $('.table_room').DataTable({
+	"fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+		if (aData[0] == "Room 310") {
+			$('td', nRow).css('background-color', 'skyblue');
+		}
+	},
+	"ajax": {
+		"url": "../class/display/display",
+		"type": "POST",
+		"data": {
+			"key": "display_room"
+		}
+	},
+	"columns": [{
+			"data": [0],
+			"className": "text-center"
+		},
 		{
-			"url": "../class/display/display",
-			"type": "POST",
-			"data": {
-				"key": "display_room"
+			"data": [1],
+			"className": "text-center"
+		},
+		{
+			"data": [2],
+			"className": "text-center",
+			"visible": false
+		}
+	],
+	dom: "Bfrtip",
+	buttons: [{
+			extend: "copy",
+			className: "btn-sm btn-success",
+			exportOptions: {
+				columns: [0]
 			}
 		},
-		"columns": 
-		[
-			{
-				"data": [0],
-				"className": "text-center"
-			},
-			{
-				"data": [1],
-				"className": "text-center"
-			},
-			{
-				"data": [2],
-				"className": "text-center",
-				"visible": false 
+		{
+			extend: "csv",
+			className: "btn-sm btn-success",
+			exportOptions: {
+				columns: [0]
 			}
-		],
-		dom: "Bfrtip",
-		buttons: [
-			{
-				extend: "copy",
-				className: "btn-sm btn-success",
-				exportOptions:{
-					columns: [0]
-				}
-			},
-			{
-				extend: "csv",
-				className: "btn-sm btn-success",
-				exportOptions:{
-					columns: [0]
-				}
-			},
-			{
-				extend: "excel",
-				className: "btn-sm btn-success",
-				exportOptions:{
-					columns: [0]
-				}
-			},
-			{
-				extend: "pdfHtml5",
-				className: "btn-sm btn-success",
-				exportOptions:{
-					columns: [0]
-				},
-			},
-			{
-				extend: "print",
-				className: "btn-sm btn-success",
-				exportOptions:{
-					columns: [0]
-				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
-				customize: function ( win ) {
-					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
-				}
+		},
+		{
+			extend: "excel",
+			className: "btn-sm btn-success",
+			exportOptions: {
+				columns: [0]
 			}
-		]
-});	
+		},
+		{
+			extend: "pdfHtml5",
+			className: "btn-sm btn-success",
+			exportOptions: {
+				columns: [0]
+			},
+		},
+		{
+			extend: "print",
+			className: "btn-sm btn-success",
+			exportOptions: {
+				columns: [0]
+			},
+			message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
+			customize: function(win) {
+				$(win.document.body).find('table').append('<br<br/><br><br><br><h4 class="" style="font-family: Times New Roman;">Noted by:</h4><br><br><br><br><br><h4 class="" style="font-family: Times New Roman;">Prepared by:</h4>');
+			}
+		}
+	]
+});
+
 var table_member =  $('.table_member').DataTable({
 	"ajax":
 		{
@@ -184,17 +180,17 @@ var table_member =  $('.table_member').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4,5,6]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -275,17 +271,17 @@ var table_user =  $('.table_user').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -445,17 +441,17 @@ var table_equipment = $('.table_equipment').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -531,17 +527,17 @@ var table_inventory_new = $('.table_inventory_new').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -617,17 +613,17 @@ var table_inventory_old = $('.table_inventory_old').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -702,17 +698,17 @@ var table_inventory_lost = $('.table_inventory_lost').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -787,17 +783,17 @@ var table_inventory_damaged = $('.table_inventory_damaged').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -872,17 +868,17 @@ var table_inventory_pulledout = $('.table_inventory_pulledout').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1229,17 +1225,17 @@ var tbl_borrow = $('.tbl_borrow').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1323,17 +1319,17 @@ var tbl_return = $('.tbl_return').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1413,17 +1409,17 @@ var tbl_pendingres = $('.tbl_pendingres').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1499,17 +1495,17 @@ var tbl_reserved = $('.tbl_reserved').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1585,17 +1581,17 @@ var tbluser_reservation = $('.tbluser_reservation').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1664,17 +1660,17 @@ var table_history = $('.table_history').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1755,17 +1751,17 @@ var table_dashboard = $('.table_dashboard').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4,5]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1841,17 +1837,17 @@ function member_profile(id)
 					exportOptions:{
 						columns: [0,1,2,3]
 					},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -1922,17 +1918,17 @@ var tbluser_inbox = $('.tbluser_inbox').DataTable({
 					exportOptions:{
 						columns: [0,1,2]
 					},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
@@ -2036,17 +2032,17 @@ var table_inventory_transfer = $('.table_inventory_transfer').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="100px" width="107px" style="position: absolute; top: 45px; left: 80px;">\
-							<center>\
-							  <strong><p style="margin-top: -35px; margin-bottom: 0; font-size: 18px">Republic of the Philippines</p></strong>\
-							  <strong><p style="margin: 0; font-size: 25px">BATANGAS STATE UNIVERSITY</p></strong>\
-							  <h4 style="margin: 0; font-size: 18px; color: red;">The National Engineering University</h4>\
-							  <strong><p style="margin: 0; font-size: 18px;">ARASOF-Nasugbu Campus</p>\
-							  <strong><h5 style="margin: 0;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</h5></strong>\
-							  <h5 style="margin: 0;"Telephone No. +63 416 0350 local 228</h5>\
-							  <h5 style="margin: 0;">E-mail Address scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
-							  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
-							</center>',
+				message: '<img src="https://batstate-u.edu.ph/wp-content/uploads/2022/05/cropped-BatStateU-NEU-Logo.png" height="110px" width="119px" style="position: absolute; top: 0px; left: 30px;">\
+						<center>\
+						  <strong><p style="margin-top: -67px; margin-bottom: -5px; font-size: 17px; font-family: Times New Roman;">Republic of the Philippines</p></strong>\
+						  <strong><p style="margin-bottom: -5px; font-size: 22px; font-family: Times New Roman; letter-spacing: 0.8px;">BATANGAS STATE UNIVERSITY</p></strong>\
+						  <h4 style="margin: 0; font-size: 18px; color: red; font-family: Times New Roman;">The National Engineering University</h4>\
+						  <strong><p style="margin-top: -5px; font-size: 17px; font-family: Times New Roman;">ARASOF-Nasugbu Campus</p>\
+						  <strong><p style="margin-top: -15px; font-size: 13.28px; font-family: Times New Roman;">R. Martinez St., Brgy.Bucana, Nasugbu, Batangas, Philippines 4231</p></strong>\
+						  <h5 style="margin-top: -10px; font-family: Times New Roman;">Telephone No. +63 416 0350 local 228</h5>\
+						  <h5 style="margin-top: -12px; margin-bottom: -2px; font-family: Times New Roman;">E-mail Address: scilab.nasugbu@gmail.com | Website Address: http//www.batstate-u.edu.ph</h5>\
+						  <hr style="margin-top: 3px; padding-bottom: 10px; border-width: 2.5px; border-color: black;">\
+						</center>',
 				customize: function ( win ) {
 					$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
 				}
