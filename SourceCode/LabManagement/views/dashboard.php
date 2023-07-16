@@ -1,20 +1,20 @@
-F<?php 
+<?php 
 	include 'header.php';
 ?>
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 col-md-2 sidebar" style="background-color: #333537">
 		
 		<ul class="nav menu">
 			<li class="active">
-				<a href="#">
-					<svg class="glyph stroked dashboard-dial">
+				<a href="#"  >
+					<svg class="glyph stroked dashboard-dial" >
 						<use xlink:href="#stroked-dashboard-dial"></use>
 					</svg>
 					Dashboard
 				</a>
 			</li>
 			<li class="parent ">
-				<a href="#sub-item-1" data-toggle="collapse">
-					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Transaction 
+				<a href="#sub-item-1" data-toggle="collapse"  >
+					<span data-toggle="collapse" href="#sub-item-1" style="width: 20px; height: 20px"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Transaction 
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					
@@ -56,7 +56,7 @@ F<?php
 			</li>
 			<?php if($_SESSION['admin_type'] == 1){ ?>
 			<li>
-				<a href="items">
+				<a href="items"  >
 					<svg class="glyph stroked desktop">
 						<use xlink:href="#stroked-desktop"/>
 					</svg>
@@ -64,7 +64,7 @@ F<?php
 				</a>
 			</li>
 			<li>
-				<a href="members">
+				<a href="members"  >
 					<svg class="glyph stroked male user ">
 						<use xlink:href="#stroked-male-user"/>
 					</svg>
@@ -72,7 +72,7 @@ F<?php
 				</a>
 			</li>
 			<li>
-				<a href="room">
+				<a href="room"  >
 					<svg class="glyph stroked app-window">
 						<use xlink:href="#stroked-app-window"></use>
 					</svg>
@@ -80,7 +80,7 @@ F<?php
 				</a>
 			</li>
 			<li>
-				<a href="inventory">
+				<a href="inventory"  >
 					<svg class="glyph stroked clipboard with paper">
 						<use xlink:href="#stroked-clipboard-with-paper"/>
 					</svg>
@@ -88,7 +88,7 @@ F<?php
 				</a>
 			</li>
 			<li>
-				<a href="report">
+				<a href="report"  >
 					<svg class="glyph stroked line-graph">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-line-graph"/>
 					</svg>
@@ -96,7 +96,7 @@ F<?php
 				</a>
 			</li>
 			<li>
-				<a href="user">
+				<a href="user"  >
 					<svg class="glyph stroked female user">
 						<use xlink:href="#stroked-female-user"/>
 					</svg>
@@ -124,8 +124,8 @@ F<?php
 				
 				
 				<div class="row">
-					<div class="col-sm-8">
-						<h1 class="page-header">Dashboard</h1>
+					<div class="col-sm-13">
+						<h3 class="page-header">Dashboard</h3>
 					</div>
 				</div><!--/.row-->
 
@@ -214,7 +214,7 @@ F<?php
 
 				<!-- /div> -->
 				
-				<hr/>
+			
 				<div class="row">
 					<table class="table table_dashboard">
 						<thead>

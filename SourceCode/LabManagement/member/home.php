@@ -22,7 +22,7 @@ date_default_timezone_set('Asia/Manila');
 					<svg class="glyph stroked female user">
 						<use xlink:href="#stroked-female-user"/>
 					</svg>
-					Reservation Status
+					Request Status
 				</a>
 			</li>
 			
@@ -106,7 +106,7 @@ date_default_timezone_set('Asia/Manila');
 									<!-- Form actions -->
 									<div class="form-group">
 										<div class="col-md-12 widget-right">
-											<button type="submit" class="btn btn-primary btn-md pull-right">Make Reservation</button>
+											<button type="submit" class="btn btn-primary btn-md pull-right">Make Requestions</button>
 										</div>
 									</div>
 								</fieldset>

@@ -135,7 +135,7 @@
 							<thead>
 								<tr>
 									<th>Image</th>
-									<th>Model</th>
+									<th>Item Name</th>
 									<th>Category</th>
 									<th>Brand</th>
 									<th>Description</th>

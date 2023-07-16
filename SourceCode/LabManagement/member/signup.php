@@ -43,8 +43,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 35px; width: 37px;">
-  					<a class="navbar-brand" href="#">SCIENCE LABORATORY INVENTORY MANAGEMENT SYSTEM</a>
+				<img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 30px; width: 40px;">
+  					<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -155,7 +155,7 @@
 					<div class="form-group">
 				  <div class="btn-group">
 				    <button class="btn btn-primary btn_student" type="submit">Sign up</button>
-				    <button class="btn btn-primary btn_student" type="submit" style="margin-left: 255px" onclick="window.location.href='login'">Back</button>
+				    <button class="btn btn-primary btn_student" type="submit" style="margin-left: 260px" onclick="window.location.href='login'">Back</button>
 
 				  </div>
 				</div>
@@ -208,6 +208,7 @@
 					</div>
 					<div class="form-group">
 						<button class="btn btn-primary btn_faculty" type="submit">Sign up</button>
+						<button class="btn btn-primary btn_student" type="submit" style="margin-left: 260px" onclick="window.location.href='login'">Back</button>
 					</div>
 
 

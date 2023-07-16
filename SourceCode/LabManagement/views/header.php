@@ -51,7 +51,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">
-				  <img src="bsu-logo.png" alt="BSU Logo" style="vertical-align: middle; height: 37px; width: 40px; margin-top: -8px">
+				  <img src="bsu-logo.png" alt="BSU Logo" style="vertical-align: middle; height: 30px; width: 40px">
 				  Science Laboratory Inventory Management System
 				</a>
 				<ul class="user-menu">

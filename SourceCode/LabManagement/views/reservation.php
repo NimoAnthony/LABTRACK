@@ -113,7 +113,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="dashboard"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Request</li>
+				<li class="active">Requests</li>
 			</ol>
 		</div><!--/.row-->
 

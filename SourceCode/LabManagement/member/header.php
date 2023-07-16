@@ -51,8 +51,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				 <img src="bsu-logo.png" alt="BSU Logo" style="vertical-align: middle; height: 37px; width: 40px; margin-top: -8px">
-  					<a class="navbar-brand" href="#">SCIENCE LABORATORY INVENTORY MANAGEMENT SYSTEM</a>
+				 <img src="bsu-logo.png" alt="BSU Logo" style="float:left; margin-top: 7px; margin-right: 5px; height: 30px; width: 40px;">
+  					<a class="navbar-brand" href="#">ICT LABORATORY MANAGEMENT SYSTEM</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -63,7 +63,7 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+							<li><a href="login"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
 							<!-- <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li> -->
 							<li><a href="../class/logout/logout_member"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
 						</ul>

@@ -21,7 +21,7 @@
 					<svg class="glyph stroked female user">
 						<use xlink:href="#stroked-female-user"/>
 					</svg>
-					Reservation Status
+					Request Status
 				</a>
 			</li>
 			
@@ -34,7 +34,7 @@
 				
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Reservation Status</h1>
+						<h1 class="page-header">Request Status</h1>
 					</div>
 				</div><!--/.row-->
 
@@ -43,7 +43,7 @@
 						<table class="table table-bordered tbluser_reservation">
 							<thead>
 								<tr>
-									<th>Reservation Date</th>
+									<th>Requesting Date</th>
 									<th>Items</th>
 									<th>Room Assign</th>
 									
