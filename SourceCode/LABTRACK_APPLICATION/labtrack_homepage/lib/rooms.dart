@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:labtrack_homepage/admin-dashboard.dart';
 import 'package:labtrack_homepage/main.dart';
 import 'package:labtrack_homepage/side_borrower.dart';
-import 'package:labtrack_homepage/rooms.dart';
 
-class ItemTable extends StatelessWidget {
-  static const routeName = '/item_table';
+import 'item_table.dart';
+
+class Rooms extends StatelessWidget {
+  static const routeName = '/rooms';
 
   void _navigateAdminDashboardState(BuildContext context) {
     Navigator.push(
@@ -13,14 +14,21 @@ class ItemTable extends StatelessWidget {
       MaterialPageRoute(builder: (context) => AdminDashboard()),
     );
   }
+
+  void _navigateToSideBorrower(BuildContext context) {
+    Navigator.push(context,
+      MaterialPageRoute(builder: (context) => SideBorrower()),
+    );
+  }
   void _navigateToRooms(BuildContext context) {
     Navigator.push(context,
       MaterialPageRoute(builder: (context) => Rooms()),
     );
   }
-  void _navigateToSideBorrower(BuildContext context) {
+
+  void _navigateToItemTable(BuildContext context) {
     Navigator.push(context,
-      MaterialPageRoute(builder: (context) => SideBorrower()),
+      MaterialPageRoute(builder: (context) => ItemTable()),
     );
   }
 
@@ -49,7 +57,8 @@ class ItemTable extends StatelessWidget {
             },
           ),
           PopupMenuButton(
-            itemBuilder: (BuildContext context) => [
+            itemBuilder: (BuildContext context) =>
+            [
               PopupMenuItem(
                 child: ListTile(
                   leading: Icon(Icons.logout),
@@ -98,7 +107,7 @@ class ItemTable extends StatelessWidget {
               title: Text('Laboratory Resources'),
               leading: Icon(Icons.science),
               onTap: () {
-                _navigateToItemTableState(context);
+                _navigateToItemTable(context);
               },
             ),
             ExpansionTile(
@@ -139,12 +148,14 @@ class ItemTable extends StatelessWidget {
               title: Text('Borrowers'),
               leading: Icon(Icons.person),
               onTap: () => _navigateToSideBorrower(context),
-                // Handle borrowers navigation
+              // Handle borrowers navigation
             ),
             ListTile(
               title: Text('Rooms'),
               leading: Icon(Icons.room_preferences),
               onTap: () => _navigateToRooms(context),
+                // Handle rooms navigation
+
             ),
             ListTile(
               title: Text('Inventory'),
@@ -183,7 +194,7 @@ class ItemTable extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Laboratory Resources',
+              'Rooms',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -211,6 +222,7 @@ class ItemTable extends StatelessWidget {
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Search...',
+
                             ),
                           ),
                         ),
@@ -226,7 +238,8 @@ class ItemTable extends StatelessWidget {
                   icon: Icon(Icons.add),
                   label: Text('Add Item'),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.green),
                   ),
                 ),
               ],
@@ -240,14 +253,15 @@ class ItemTable extends StatelessWidget {
                   height: 30,
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.green)
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.green)
                     ),
                     onPressed: () {
                       // Handle Copy button action
                     },
                     child: Text(
                       'Copy',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -264,7 +278,8 @@ class ItemTable extends StatelessWidget {
                     },
                     child: Text(
                       'CSV',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -281,7 +296,8 @@ class ItemTable extends StatelessWidget {
                     },
                     child: Text(
                       'Excel',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -298,7 +314,8 @@ class ItemTable extends StatelessWidget {
                     },
                     child: Text(
                       'PDF',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -315,7 +332,8 @@ class ItemTable extends StatelessWidget {
                     },
                     child: Text(
                       'Print',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -323,7 +341,7 @@ class ItemTable extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Container(
-              width: 380,
+              width: double.infinity,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Card(
@@ -331,38 +349,44 @@ class ItemTable extends StatelessWidget {
                     side: BorderSide(color: Colors.grey, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: DataTable(
-                    dataRowColor: MaterialStateColor.resolveWith((states) => Colors.grey.shade200),
-                    headingRowColor: MaterialStateColor.resolveWith((states) => Colors.grey.shade400),
-                    dividerThickness: 1,
-                    columns: [
-                      DataColumn(label: Text('Image')),
-                      DataColumn(label: Text('Name')),
-                      DataColumn(label: Text('Category')),
-                      DataColumn(label: Text('Brand')),
-                      DataColumn(label: Text('Quantity')),
-                      DataColumn(label: Text('Quantity Left')),
-                      DataColumn(label: Text('Status')),
-                      DataColumn(label: Text('Action')),
-                    ],
-                    rows: [
-                      ...List<DataRow>.generate(
-                        1,
-                            (index) => DataRow(
-                          cells: [
-                            DataCell(
-                              Image.asset(
-                                'assets/Beaker.jpg', // Replace with your image location
-                                height: 40,
-                                width: 50,
+                  child: SizedBox(
+                    width: 368, // Set the desired width for the table
+                    child: DataTable(
+                      dataRowColor: MaterialStateColor.resolveWith((states) => Colors.grey.shade200),
+                      headingRowColor: MaterialStateColor.resolveWith((states) => Colors.grey.shade400),
+                      dividerThickness: 1,
+                      columns: [
+                        DataColumn(
+                          label: Text('Room Name'),
+                          numeric: false,
+                          tooltip: 'Room Name',
+                        ),
+                        DataColumn(
+                          label: Text('Action'),
+                          numeric: false,
+                          tooltip: 'Action',
+                        ),
+                      ],
+                      rows: [
+                        ...List<DataRow>.generate(
+                          1,
+                              (index) => DataRow(
+                            cells: [
+                              DataCell(Text('301')),
+                              DataCell(
+                                ElevatedButton(
+                                  onPressed: () {
+                                    // Handle action button press
+                                  },
+                                  child: Text('Action'),
+                                ),
                               ),
-                            ),
-                            DataCell(Text('Beaker')),
-                            DataCell(Text('Tools')),
-                            DataCell(Text('FisherBrand')),
-                            DataCell(Text('100')),
-                            DataCell(Text('95')),
-                            DataCell(Text('New')),
+                            ],
+                          ),
+                        ),
+                        DataRow(
+                          cells: [
+                            DataCell(Text('302')),
                             DataCell(
                               ElevatedButton(
                                 onPressed: () {
@@ -373,45 +397,18 @@ class ItemTable extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      DataRow(
-                        cells: [
-                          DataCell(
-                            Image.asset(
-                              'assets/chemi.jpg', // Replace with your image location
-                              height: 40,
-                              width: 50,
-                            ),
-                          ),
-                          DataCell(Text('Potassium Chloride')),
-                          DataCell(Text('Chemicals')),
-                          DataCell(Text('Dalkem')),
-                          DataCell(Text('50 Bottles')),
-                          DataCell(Text('35')),
-                          DataCell(Text('Old')),
-                          DataCell(
-                            ElevatedButton(
-                              onPressed: () {
-                                // Handle action button press
-                              },
-                              child: Text('Action'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
 
+
+
           ],
         ),
       ),
     );
-  }
-
-  void _navigateToItemTableState(BuildContext context) {
-    Navigator.pushNamed(context, ItemTable.routeName);
   }
 }

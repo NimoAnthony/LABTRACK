@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:labtrack_homepage/borrowerDashboard.dart';
 import 'package:labtrack_homepage/faculty-signUP.dart';
+import 'package:labtrack_homepage/main.dart';
 import 'package:labtrack_homepage/student-signUp.dart';
 
 class BorrowerLoginForm extends StatefulWidget {
@@ -29,11 +31,67 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
     });
   }
 
+  void _login() {
+    String srCode = _srCodeController.text;
+    String password = _passwordController.text;
+
+    if (srCode == '2072209' && password == 'anthony') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BorrowerDashboard(),
+        ),
+      );
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Access Denied'),
+            content: Text('Invalid SR-Code or password.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  void _navigateToMyHomePage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyHomePage()),
+    );
+  }
+
+  final TextEditingController _srCodeController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _srCodeController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => _navigateToMyHomePage(context),
+        ),
+      ),
       body: Stack(
         children: [
           Center(
@@ -52,7 +110,7 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                       ),
                       SizedBox(width: 10),
                       Text(
-                        'BORROWER',
+                        'Welcome Borrower',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -62,6 +120,7 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                   ),
                   SizedBox(height: 30),
                   TextField(
+                    controller: _srCodeController,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
                       labelText: 'SR-Code',
@@ -69,9 +128,9 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
-
                   SizedBox(height: 16),
                   TextField(
+                    controller: _passwordController,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
                       labelText: 'Password',
@@ -114,9 +173,7 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                   ),
                   SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () {
-                      // Perform login action
-                    },
+                    onPressed: _login,
                     child: Text('Login'),
                   ),
                   SizedBox(height: 8),
@@ -160,10 +217,10 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                       alignment: Alignment.center,
                       child: Text(
                         'Sign-Up as:',
-                        style: TextStyle(fontSize: 25,
-                            fontWeight: FontWeight.normal
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.normal,
                         ),
-
                       ),
                     ),
                     SizedBox(height: 15),
@@ -183,7 +240,7 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                           label: Text('Faculty'),
                         ),
                         ElevatedButton.icon(
-                          onPressed: (){
+                          onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -197,7 +254,6 @@ class _BorrowerLoginFormState extends State<BorrowerLoginForm> {
                       ],
                     ),
                     SizedBox(height: 16),
-
                   ],
                 ),
               ),

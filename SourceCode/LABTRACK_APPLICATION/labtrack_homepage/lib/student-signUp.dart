@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:labtrack_homepage/borrower.dart';
 
 class StudentSignUpForm extends StatefulWidget {
   const StudentSignUpForm({Key? key}) : super(key: key);
@@ -334,6 +335,12 @@ class _StudentSignUpFormState extends State<StudentSignUpForm> {
       ),
     );
   }
+  void _navigateToBorrowerLoginForm(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BorrowerLoginForm()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -355,6 +362,14 @@ class _StudentSignUpFormState extends State<StudentSignUpForm> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => _navigateToBorrowerLoginForm(context), // Fix method name here
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Container(
@@ -362,7 +377,7 @@ class _StudentSignUpFormState extends State<StudentSignUpForm> {
             padding: EdgeInsets.all(16),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 40),
+
                 Row(
                   children: [
                     Image.asset(

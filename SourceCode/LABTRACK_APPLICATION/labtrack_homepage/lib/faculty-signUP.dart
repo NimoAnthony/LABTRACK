@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
-
-
+import 'package:labtrack_homepage/borrower.dart'; // Replace with the correct file path
 
 class FacultySignUpForm extends StatefulWidget {
   const FacultySignUpForm({Key? key}) : super(key: key);
@@ -202,6 +200,13 @@ class _FacultySignUpFormState extends State<FacultySignUpForm> {
     );
   }
 
+  void _navigateToMyBorrowerLoginForm(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BorrowerLoginForm()),
+    );
+  }
+
   Widget _buildStepThree() {
     return Column(
       children: [
@@ -326,6 +331,14 @@ class _FacultySignUpFormState extends State<FacultySignUpForm> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => _navigateToMyBorrowerLoginForm(context), // Fix method name here
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Container(
@@ -333,7 +346,6 @@ class _FacultySignUpFormState extends State<FacultySignUpForm> {
             padding: EdgeInsets.all(16),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 40),
                 Row(
                   children: [
                     Image.asset(

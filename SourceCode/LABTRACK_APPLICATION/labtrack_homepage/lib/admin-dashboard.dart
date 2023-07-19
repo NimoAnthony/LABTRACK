@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:labtrack_homepage/item_table.dart';
 import 'package:labtrack_homepage/main.dart';
-
-
+import 'package:labtrack_homepage/side_borrower.dart';
+import 'package:labtrack_homepage/rooms.dart';
 
 class AdminDashboard extends StatefulWidget {
   static const routeName = '/admin-dashboard';
@@ -18,6 +18,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
       MaterialPageRoute(builder: (context) => ItemTable()),
     );
   }
+  void _navigateToRooms(BuildContext context) {
+    Navigator.push(context,
+      MaterialPageRoute(builder: (context) => Rooms()),
+    );
+  }
 
   void _navigateLoginFormState(BuildContext context) {
     Navigator.push(
@@ -25,6 +30,12 @@ class _AdminDashboardState extends State<AdminDashboard> {
       MaterialPageRoute(builder: (context) => LoginForm()),
     );
   }
+  void _navigateToSideBorrower(BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => SideBorrower()),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +61,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   leading: Icon(Icons.logout),
                   title: Text('Logout'),
                   onTap: () => _navigateLoginFormState(context),
-                    // Handle logout action
-
+                  // Handle logout action
                 ),
               ),
               PopupMenuItem(
@@ -134,16 +144,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
             ListTile(
               title: Text('Borrowers'),
               leading: Icon(Icons.person),
-              onTap: () {
-                // Handle borrowers navigation
-              },
+              onTap: () => _navigateToSideBorrower(context),
+              // Handle borrowers navigation
             ),
             ListTile(
               title: Text('Rooms'),
               leading: Icon(Icons.room_preferences),
-              onTap: () {
-                // Handle rooms navigation
-              },
+              onTap: () => _navigateToRooms(context),
             ),
             ListTile(
               title: Text('Inventory'),
@@ -195,7 +202,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: Card(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 2),
+                      side: BorderSide(color: Colors.grey, width: 3),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(
@@ -242,7 +249,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: Card(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 2),
+                      side: BorderSide(color: Colors.grey, width: 3),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(
@@ -293,7 +300,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: Card(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 2),
+                      side: BorderSide(color: Colors.grey, width: 3),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(
@@ -340,7 +347,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   child: Card(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 2),
+                      side: BorderSide(color: Colors.grey, width: 3),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(

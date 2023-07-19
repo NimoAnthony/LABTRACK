@@ -73,9 +73,25 @@ class _LoginFormState extends State<LoginForm> {
     }
   }
 
+  void _navigateToMyHomePage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyHomePage()),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => _navigateToMyHomePage(context),
+        ),
+      ),
       resizeToAvoidBottomInset: true,
       body: Center(
         child: Container(
@@ -93,7 +109,7 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                   SizedBox(width: 10),
                   Text(
-                    'ADMIN',
+                    'Welcome Admin',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -221,5 +237,3 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
-
